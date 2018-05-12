@@ -93,7 +93,7 @@
                             <?php
                                 if(isset($_POST['Submit']))
                                 {
-                                    $upfile = 'images/'.$_FILES['userfile']['name'];
+                                    $upfile = $_FILES['userfile']['name'];
                                     $title = $_POST['title'];
                                     $price = $_POST['price'];
                                     $capacity= $_POST['capacity'];
