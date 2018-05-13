@@ -9,6 +9,9 @@
                     <a class="nav-link" href="enterProperty.php">Add a Property</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="availableHotels.php">View Properties</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logOut.php">Logout</a>
                 </li>
             </ul>
