@@ -32,7 +32,7 @@
             <div id="border"></div>
             <h3 id="heading2">More than 350,000 apartments and holiday homes worldwide</h3><br/><br/>
            
-            <form action="availableHotels.php" method="get">
+            <form action="index.php" method="post">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -41,12 +41,12 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input placeholder="Check-in" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkIn" value="<?php echo date('Y-m-d'); ?>">
+                            <input class="form-control"  type="date" name="checkIn" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input placeholder="Check-out" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkOut" value="<?php echo date('Y-m-d'); ?>">
+                            <input class="form-control" type="date" name="checkOut" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -70,7 +70,42 @@
             </form>
         </div>
                 
+<table>
+    <?php 
+    if(isset($_POST['Submit']))
+    {
+        $location = $_POST['location'];
+        $checkIn = date('Y-m-d', strtotime($_POST['checkIn']));
+        $checkOut = date('Y-m-d', strtotime($_POST['checkOut']));
+        $numOfGuests = $_POST['numOfGuests'];
+        require_once('databaseConn.php');
+
+            $query = "SELECT tbl_property.image, tbl_property.title, tbl_property.pricePerNight 
+            FROM tbl_property 
+            WHERE tbl_location.location = '$location', tbl_property.capacity = '$numOfGuests', tbl_reservation.date_from = '$checkIn', tbl_reservation.date_to = '$checkOut' 
+            INNER JOIN tbl_reservation ON tbl_property.propertyId = tbl_reservation.propertyId
+            INNER JOIN tbl_property ON tbl_location.locationId = tbl_property.locationId";
+            $result = mysqli_query($connection, $query)
+                    or die("Error in query: ". mysqli_error($connection));
+            while($row = mysqli_fetch_array($result)){  
+
+            echo "<tr>
+                    <td><img src=$row[image] width='200px' height='200px'></td>
+                </tr>
+                <tr>
+                    <td style='color: blue; font-family: fantasy;'>$row[0] </td>
+                </tr>
+                <tr>
+                    <td style='color: blue; font-family: fantasy;'>$$row[1]/Night </td>
+                </tr>
+                <tr>
+                    <td class=><input type='submit' value='Book Property' class='btn btn-success btn-block'></td>
+                </tr>";
+            }
+        }
         
+    ?>       
+</table>                 
     
          <!-- javascript files -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
