@@ -32,7 +32,7 @@
             <div id="border"></div>
             <h3 id="heading2">More than 350,000 apartments and holiday homes worldwide</h3><br/><br/>
            
-            <form action="availableHotels.php" method="post">
+            <form action="availableHotels.php" method="get">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
@@ -41,12 +41,12 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input placeholder="Check-in" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkIn">
+                            <input placeholder="Check-in" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkIn" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input placeholder="Check-out" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkOut">
+                            <input placeholder="Check-out" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkOut" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                     </div>
                     <div class="col-md-2">

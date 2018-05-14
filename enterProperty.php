@@ -66,19 +66,19 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <select name="location" class="form-control">
-                                                <option value="select">Select Location</option>
-                                                <option value="1">Attard</option>
-                                                <option value="2">Balzan</option>
-                                                <option value="3">Birgu</option>
-                                                <option value="4">Birkirkara</option>
-                                                <option value="5">Bormla</option>
-                                                <option value="6">Bugibba</option>
-                                                <option value="7">Fgura</option>
-                                                <option value="8">Msida</option>
-                                                <option value="9">Mdina</option>
-                                                <option value="10">Valletta</option>
-                                            </select> 
+                                            <?php
+                                            
+                                            require_once('databaseConn.php');
+                                            
+                                            $query2 = "SELECT locationId, location FROM tbl_location";
+                                            $result2 = mysqli_query($connection, $query2)
+                                                or die("Error in query: ". mysqli_error($connection));
+                                            echo "<select name='location' class='form-control   '>";
+                                            while ($row = mysqli_fetch_array($result2)) {
+                                                echo "<option value='" . $row['0'] . "'>" . $row['1'] . "</option>";
+                                            }
+                                            echo "</select>";
+                                            ?>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -101,7 +101,8 @@
                                     $userId = $_SESSION['userId'];
 
                                     require_once('databaseConn.php');
-
+                                    
+                                    
                                     $query = "INSERT INTO tbl_property (title, capacity, pricePerNight, locationId, image, userId)
                                         VALUES ('$title', '$capacity', '$price', '$location', '$upfile', '$userId')";
 
