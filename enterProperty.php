@@ -93,7 +93,7 @@
                             <?php
                                 if(isset($_POST['Submit']))
                                 {
-                                    $upfile = $_FILES['userfile']['name'];
+                                    $upfile = 'images/'.$_FILES['userfile']['name'];
                                     $title = $_POST['title'];
                                     $price = $_POST['price'];
                                     $capacity= $_POST['capacity'];
@@ -111,7 +111,7 @@
 
                                     if(move_uploaded_file($_FILES['userfile']['tmp_name'], $upfile))
                                     {
-                                        echo "File uploaded successfully";
+                                        echo "Location Added!";
                                     }
                                     else
                                     {
