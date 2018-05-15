@@ -41,12 +41,12 @@
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input class="form-control"  type="date" name="checkIn" value="<?php echo date('Y-m-d'); ?>">
+                            <input placeholder="Check-in" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkIn">
                         </div>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
-                            <input class="form-control" type="date" name="checkOut" value="<?php echo date('Y-m-d'); ?>">
+                            <input placeholder="Check-out" class="textbox-n form-control" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="checkOut">
                         </div>
                     </div>
                     <div class="col-md-2">
@@ -63,11 +63,14 @@
                             <input type="submit" name="Submit" class="btn btn-success btn-block">
                         </div>
                     </div>
+
                 </div>
+
+                
             </form>
         </div>
                 
-            
+        
     
          <!-- javascript files -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

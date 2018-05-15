@@ -1,7 +1,7 @@
 #heading
 {
     color: white; 
-    font-family: sans-serif;
+    font-family: monospace;
     text-align: center;
     font-size: 70px;
     font-weight: bold;
@@ -13,7 +13,7 @@
 #heading2
 {
     color: white; 
-    font-family: sans-serif;
+    font-family: monospace;
     text-align: center;
     font-size: 25px;
     font-weight: bold;
@@ -21,7 +21,7 @@
 
 body
 {
-    background:url(Images/hotel1.jpg);
+    background:url(Images/hotel.jpg);
     background-size: cover;
 }
 .centered-form

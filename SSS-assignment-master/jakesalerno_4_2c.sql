@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2018 at 04:48 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.2
+-- Host: 127.0.0.1:3307
+-- Generation Time: May 11, 2018 at 10:51 AM
+-- Server version: 10.1.22-MariaDB
+-- PHP Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,22 +33,6 @@ CREATE TABLE `tbl_location` (
   `location` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_location`
---
-
-INSERT INTO `tbl_location` (`locationId`, `location`) VALUES
-(1, 'Attard'),
-(2, 'Balzan'),
-(3, 'Birgu'),
-(4, 'Birkirkara'),
-(5, 'Bormla'),
-(6, 'Bugibba'),
-(7, 'Fgura'),
-(8, 'Msida'),
-(9, 'Mdina'),
-(10, 'Valletta');
-
 -- --------------------------------------------------------
 
 --
@@ -65,22 +49,6 @@ CREATE TABLE `tbl_property` (
   `userId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_property`
---
-
-INSERT INTO `tbl_property` (`propertyId`, `title`, `capacity`, `pricePerNight`, `locationId`, `image`, `userId`) VALUES
-(1, 'New appartment', 4, 100, 5, '', 1),
-(7, '132', 2, 123, 2, 'images/apartment1.jpg', 14),
-(8, '123', 1, 123, 1, 'images/apartment1.jpg', 14),
-(9, '132', 2, 123, 2, 'images/apartment1.jpg', 14),
-(10, 'lol', 2, 123, 3, 'crazy-russian-hacker---i-am-a-unicorn_o_5669681.jp', 14),
-(11, '123', 1, 123, 1, 'Messi.png', 14),
-(32, 'bbb', 2, 123, 3, '', 14),
-(33, 'bbb', 2, 123, 3, '', 14),
-(34, 'das', 2, 123, 1, 'Untitled-1.png', 14),
-(35, 'das', 2, 123, 1, 'Untitled-1.png', 14);
-
 -- --------------------------------------------------------
 
 --
@@ -91,20 +59,11 @@ CREATE TABLE `tbl_reservation` (
   `reservationId` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `propertyId` int(11) NOT NULL,
+  `property_id` int(11) NOT NULL,
   `date_from` date NOT NULL,
   `date_to` date NOT NULL,
   `amountPaid` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_reservation`
---
-
-INSERT INTO `tbl_reservation` (`reservationId`, `email`, `name`, `propertyId`, `date_from`, `date_to`, `amountPaid`) VALUES
-(2, '123', '123', 8, '2018-05-15', '2018-05-16', 123),
-(3, '123', '123', 1, '2018-05-01', '2018-05-02', 12),
-(4, '123', 'test', 10, '2018-05-01', '2018-05-03', 123);
 
 -- --------------------------------------------------------
 
@@ -126,8 +85,17 @@ CREATE TABLE `tbl_users` (
 
 INSERT INTO `tbl_users` (`userId`, `name`, `surname`, `email`, `password`) VALUES
 (1, 'Jake', 'Salerno', 'test@test.com', '123'),
-(13, 'Joe', 'Borg', 'joeborg@gmail.com', '123'),
-(14, 'admin', 'admin', 'admin@admin.admin', '123456');
+(2, 'Jake', 'asd', '123@123.123', '123'),
+(3, '123', '123', '321@13.com', '123'),
+(4, '321', '3231', '222@22.com', '123'),
+(5, '321', '3231', '22112@22.com', '123456'),
+(6, 'jklkj', 'kjkjl', 'tes8t@test.com', '123'),
+(7, '321', '3321', '321321@123.123', '321'),
+(8, '321', '321', '321@13.com2', '321'),
+(9, '321', '321', '321@13.com22', '321'),
+(10, '123', '123', '321@13.com21', '123'),
+(11, '123', '123', '123@123.1231', '123'),
+(12, '321', '321', '321@13.com222', '321');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +120,7 @@ ALTER TABLE `tbl_property`
 --
 ALTER TABLE `tbl_reservation`
   ADD PRIMARY KEY (`reservationId`),
-  ADD KEY `property_id` (`propertyId`);
+  ADD KEY `property_id` (`property_id`);
 
 --
 -- Indexes for table `tbl_users`
@@ -168,26 +136,22 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_location`
 --
 ALTER TABLE `tbl_location`
-  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_property`
 --
 ALTER TABLE `tbl_property`
-  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
+  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- Constraints for dumped tables
 --
@@ -203,7 +167,7 @@ ALTER TABLE `tbl_property`
 -- Constraints for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`propertyId`) REFERENCES `tbl_property` (`propertyId`);
+  ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`property_id`) REFERENCES `tbl_property` (`propertyId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
