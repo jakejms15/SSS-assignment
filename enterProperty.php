@@ -93,7 +93,7 @@
                             <?php
                                 if(isset($_POST['Submit']))
                                 {
-                                    $upfile = 'images/'.$_FILES['userfile']['name'];
+                                    $upfile = 'image/' . $_FILES['userfile']['name'];
                                     $title = $_POST['title'];
                                     $price = $_POST['price'];
                                     $capacity= $_POST['capacity'];
@@ -111,11 +111,11 @@
 
                                     if(move_uploaded_file($_FILES['userfile']['tmp_name'], $upfile))
                                     {
-                                        echo "Location Added!";
+                                        echo "Property Added!";
                                     }
                                     else
                                     {
-                                        echo "Problem: Could not move file to destination directory";
+                                        echo "No Image Uploaded for this property!";
                                     }
                                 }
                             ?>

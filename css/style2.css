@@ -21,7 +21,7 @@
 
 body
 {
-    background:url(Images/hotel1.jpg);
+    background:url(Images/yellow.jpg);
     background-size: cover;
 }
 .centered-form
@@ -34,4 +34,25 @@ body
 	background: rgba(255, 255, 255, 0.8);
 	box-shadow: rgba(0, 0, 0, 0.3) 2px 20px 20px;
     
+}
+
+#title
+{
+    color: white; 
+    font-family: Calibri; 
+    font-size: 20px; 
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#price
+{
+    color: white; 
+    font-family: Calibri; 
+    font-size: 15px;
+}
+
+#image
+{
+    margin: auto 0;
 }

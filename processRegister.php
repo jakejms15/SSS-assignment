@@ -13,7 +13,7 @@
         $query2 = "SELECT count(*) FROM tbl_users
                    WHERE email = '$email'";
 
-        $result2 = mysqli_query($conection, $query2)
+        $result2 = mysqli_query($connection, $query2)
             or die("Error in query: ". mysqli_error($connection));
 
         $row = mysqli_fetch_row($result2);
