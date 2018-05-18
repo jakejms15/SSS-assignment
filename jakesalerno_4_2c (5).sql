@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 18, 2018 at 03:59 PM
+-- Generation Time: May 18, 2018 at 04:20 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -127,7 +127,8 @@ INSERT INTO `tbl_property` (`propertyId`, `userId`, `title`, `capacity`, `priceP
 (29, 5, '123', 2, 123, 12, 'image/shark2.jpg'),
 (30, 5, 'TestProperty', 2, 66, 14, 'image/shree_chaaya_apartment_sanpada-mumbai-shree_developers.jpg'),
 (31, 5, '123', 2, 213, 12, 'image/shree_chaaya_apartment_sanpada-mumbai-shree_developers.jpg'),
-(32, 10, 'propert 13', 2, 123, 1, 'images/3d1697a37f10b136adb7f73979dcae44.jpg');
+(32, 10, 'propert 13', 2, 123, 1, 'images/3d1697a37f10b136adb7f73979dcae44.jpg'),
+(33, 10, '123', 2, 23, 5, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.jpg');
 
 -- --------------------------------------------------------
 
@@ -226,7 +227,7 @@ ALTER TABLE `tbl_location`
 -- AUTO_INCREMENT for table `tbl_property`
 --
 ALTER TABLE `tbl_property`
-  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `tbl_reservation`
