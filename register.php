@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,7 +28,7 @@
                             <h1 class="panel-title">Register</h1>
                         </div>
                             <div class="panel-body">
-                            <form action="processRegister.php" method="post">
+                            <form action="register.php" method="post">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -64,6 +65,48 @@
                                 <input type="submit" name="Submit" value="Register" class="btn btn-info btn-block">
                                 
                             </form>
+                                <?php    
+                                    if(isset($_POST['Submit']))
+                                    {
+                                        $fName = $_POST['fName'];
+                                        $lName = $_POST['lName'];
+                                        $email = $_POST['email'];
+                                        $password = $_POST['password'];
+                                        $confPassword = $_POST['confPassword'];
+
+                                        require_once('databaseConn.php');
+
+                                        $query2 = "SELECT count(*) FROM tbl_users
+                                                   WHERE email = '$email'";
+
+                                        $result2 = mysqli_query($connection, $query2)
+                                            or die("Error in query: ". mysqli_error($connection));
+
+                                        $row = mysqli_fetch_row($result2);
+                                        $count = $row[0];
+
+                                        if($password != $confPassword)
+                                        {
+                                            echo "Passwords do not match!<br/>";
+                                        }
+
+                                        else if($count > 0)
+                                        {
+                                            echo "Email already in use. Please choose another email!";
+                                        }
+                                        else if($password = $confPassword)
+                                        {
+                                            $query = "INSERT INTO tbl_users (name, surname, email, password)
+                                                    VALUES ('$fName', '$lName','$email', '$password')";
+                                            $result = mysqli_query($connection, $query)
+                                                 or die("Error in query: ". mysqli_error($connection));
+                                            header('Location: login.php');
+                                        }
+
+
+                                    }
+
+                                ?>
                         </div>
                     </div>
                 </div>

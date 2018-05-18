@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 17, 2018 at 10:36 PM
+-- Generation Time: May 18, 2018 at 03:59 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `tbl_location` (
   `locationId` int(11) NOT NULL,
-  `location` varchar(50) NOT NULL
+  `location` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -38,16 +38,58 @@ CREATE TABLE `tbl_location` (
 --
 
 INSERT INTO `tbl_location` (`locationId`, `location`) VALUES
-(1, 'Attard'),
-(2, 'Bormla'),
-(3, 'Birkirkara'),
-(4, 'Dingli'),
-(5, 'Pieta'),
-(6, 'Mosta'),
-(7, 'Zabbar'),
-(8, 'Hamrun'),
-(9, 'Mdina'),
-(10, 'Msida');
+(1, 'Birgu'),
+(5, 'Rabat'),
+(12, 'Attard'),
+(13, 'Balzan'),
+(14, 'Birkirkara'),
+(15, 'Birzebbuga'),
+(17, 'Fgura'),
+(18, 'Furjana'),
+(21, 'Hal Gharghur'),
+(22, 'Hal Ghaxaq'),
+(31, 'Marsaxlokk'),
+(42, 'Bormla'),
+(43, 'Mdina'),
+(44, 'Qormi'),
+(46, 'Siggiewi'),
+(47, 'Valletta'),
+(48, 'Zabbar'),
+(49, 'Zebbug'),
+(50, 'Zejtun'),
+(51, 'Isla'),
+(56, 'Had-Dingli'),
+(59, 'Gudja'),
+(63, 'Hamrun'),
+(64, 'Iklin'),
+(65, 'Kalkara'),
+(66, 'Hal Kirkop'),
+(67, 'Hal Lija'),
+(68, 'Hal Luqa'),
+(69, 'Marsa'),
+(70, 'Marsaskala'),
+(71, 'Marsaxlokk'),
+(72, 'Mellieha'),
+(73, 'Imgarr'),
+(74, 'Mosta'),
+(75, 'Imqabba'),
+(76, 'Imsida'),
+(77, 'Naxxar'),
+(78, 'Rahal Gdid'),
+(79, 'Pembroke'),
+(80, 'Pieta'),
+(81, 'Qrendi'),
+(82, 'Hal Safi'),
+(83, 'San Gijan'),
+(84, 'San Gwann'),
+(85, 'San Pawl il-Bahar'),
+(86, 'Santa Lucija'),
+(87, 'Santa Venera'),
+(88, 'Sliema'),
+(89, 'Ta Xbiex'),
+(90, 'Hal Tarxien'),
+(91, 'Zghajra'),
+(92, 'Imtarfa');
 
 -- --------------------------------------------------------
 
@@ -57,52 +99,35 @@ INSERT INTO `tbl_location` (`locationId`, `location`) VALUES
 
 CREATE TABLE `tbl_property` (
   `propertyId` int(11) NOT NULL,
-  `title` varchar(50) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `title` varchar(100) NOT NULL,
   `capacity` int(11) NOT NULL,
   `pricePerNight` double NOT NULL,
   `locationId` int(11) NOT NULL,
-  `image` varchar(1000) NOT NULL,
-  `userId` int(11) NOT NULL
+  `image` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_property`
 --
 
-INSERT INTO `tbl_property` (`propertyId`, `title`, `capacity`, `pricePerNight`, `locationId`, `image`, `userId`) VALUES
-(1, 'maisonette', 6, 100, 2, '', 1),
-(2, 'maisonette2', 3, 123, 9, '', 3),
-(3, 'ttt', 2, 33, 2, '', 2),
-(4, 'ddd', 3, 123, 3, 'jms15.jpg', 2),
-(5, 'qowen', 3, 123, 8, 'jms15.jpg', 3),
-(6, '432', 2, 423, 2, 'images/', 3),
-(7, '432', 2, 423, 2, 'images/', 4),
-(8, '321', 3, 321, 5, 'images/', 5),
-(9, 'qowen', 1, 698, 3, 'images/', 1),
-(10, '123', 0, 123, 1, 'images/', 4),
-(11, '123', 2, 123, 3, 'images/', 5),
-(12, 'lol', 3, 3, 2, 'buq', 1),
-(13, '123', 2, 123, 2, 'images/', 1),
-(14, '123', 2, 123, 3, 'images/apartment1.jpg', 1),
-(15, '123', 2, 123, 3, 'images/apartment1.jpg', 1),
-(16, '123', 2, 123, 2, 'images/Hearthstone Screenshot 04-27-18 15.27.25.png', 1),
-(17, 'abc', 3, 123, 1, 'images/Hearthstone Screenshot 04-19-18 00.14.38.png', 1),
-(18, '123', 1, 123, 1, 'images/Hearthstone Screenshot 04-19-18 00.37.53.png', 1),
-(19, '123', 1, 123, 1, 'images/Hearthstone Screenshot 04-19-18 00.37.53.png', 1),
-(20, '123', 1, 123, 1, 'images/Hearthstone Screenshot 04-19-18 00.37.53.png', 1),
-(21, '123', 2, 123, 2, 'images/Hearthstone Screenshot 04-27-18 15.27.20.png', 1),
-(22, '123', 2, 123, 1, 'images/apartment1.jpg', 1),
-(23, '123', 2, 123, 3, 'images/Hearthstone Screenshot 04-19-18 00.14.38.png', 1),
-(24, '231', 1, 231, 2, 'images/jms15.jpg', 1),
-(25, '231', 1, 231, 2, 'images/jms15.jpg', 1),
-(26, '123', 2, 123, 1, 'images/Hearthstone Screenshot 04-27-18 15.27.20.png', 5),
-(27, '123', 2, 123, 1, 'image/Hearthstone Screenshot 04-27-18 15.27.20.png', 5),
-(28, 'Assignment', 1, 123, 2, 'image/Hearthstone Screenshot 04-27-18 15.09.07.png', 1),
-(29, '123', 1, 123, 2, 'images/Hearthstone Screenshot 04-27-18 15.09.07.png', 1),
-(30, '123', 1, 123, 2, 'image/58499bdfe9678476f6134575 (1).png', 1),
-(31, 'aaa', 2, 123, 2, 'image/apartment.jpg', 1),
-(32, 'jakakakakaka123', 2, 123, 2, 'image/3d1697a37f10b136adb7f73979dcae44.jpg', 1),
-(33, 'Assignment', 2, 222, 2, 'image/28783197_1654615541270533_4815439009251590144_n.png', 1);
+INSERT INTO `tbl_property` (`propertyId`, `userId`, `title`, `capacity`, `pricePerNight`, `locationId`, `image`) VALUES
+(15, 4, '1', 8, 15, 90, 'images/Malta Country Holiday Villa - www.holiday-malta.com (1).jpg'),
+(16, 4, '2', 8, 23, 90, 'images/download.jpg'),
+(17, 4, '3', 8, 12, 1, 'images/84641095.jpg'),
+(18, 4, '4', 7, 42, 90, 'images/3842-004-C238EDD3.jpg'),
+(21, 4, 'asd', 1, 23, 1, 'images/31786655_1903924156305192_678456712230862848_n.jpg'),
+(22, 5, '123', 1, 123, 1, 'images/Hearthstone Screenshot 04-19-18 00.37.53.png'),
+(23, 5, 'teesstt', 2, 3333333, 42, 'image/30712385_1694066727325414_3520333990995165184_n.jpg'),
+(24, 5, '123', 1, 123, 1, 'image/Hearthstone Screenshot 04-19-18 00.14.38.png'),
+(25, 5, '123', 1, 123, 1, 'image/Hearthstone Screenshot 04-19-18 00.37.53.png'),
+(26, 5, 'Assignment', 1, 1111, 1, 'image/dsadsada.jpg'),
+(27, 5, '123', 1, 32, 50, 'image/Hearthstone Screenshot 04-27-18 15.27.20.png'),
+(28, 5, 'jake', 2, 123, 12, 'image/shark2.jpg'),
+(29, 5, '123', 2, 123, 12, 'image/shark2.jpg'),
+(30, 5, 'TestProperty', 2, 66, 14, 'image/shree_chaaya_apartment_sanpada-mumbai-shree_developers.jpg'),
+(31, 5, '123', 2, 213, 12, 'image/shree_chaaya_apartment_sanpada-mumbai-shree_developers.jpg'),
+(32, 10, 'propert 13', 2, 123, 1, 'images/3d1697a37f10b136adb7f73979dcae44.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,12 +149,7 @@ CREATE TABLE `tbl_reservation` (
 --
 
 INSERT INTO `tbl_reservation` (`reservationId`, `propertyId`, `date_from`, `date_to`, `amountPaid`, `userId`) VALUES
-(1, 1, '2018-05-01', '2018-05-02', 123, 1),
-(2, 3, '2018-05-01', '2018-05-04', 123, 2),
-(3, 2, '2018-05-17', '2018-05-18', 123, 2),
-(4, 9, '2018-05-01', '2018-05-05', 123, 9),
-(5, 11, '2018-05-01', '2018-05-06', 111, 3),
-(6, 11, '2018-05-15', '2018-05-19', 1, 12);
+(8, 16, '2018-05-01', '2018-05-09', 368, 3);
 
 -- --------------------------------------------------------
 
@@ -139,10 +159,10 @@ INSERT INTO `tbl_reservation` (`reservationId`, `propertyId`, `date_from`, `date
 
 CREATE TABLE `tbl_users` (
   `userId` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `surname` varchar(59) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `name` varchar(100) NOT NULL,
+  `surname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -150,18 +170,14 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`userId`, `name`, `surname`, `email`, `password`) VALUES
-(1, 'Jake', 'Salerno', 'test@test.com', '123'),
-(2, 'Jake', 'asd', '123@123.123', '123'),
-(3, '123', '123', '321@13.com', '123'),
-(4, '321', '3231', '222@22.com', '123'),
-(5, '321', '3231', '22112@22.com', '123456'),
-(6, 'jklkj', 'kjkjl', 'tes8t@test.com', '123'),
-(7, '321', '3321', '321321@123.123', '321'),
-(8, '321', '321', '321@13.com2', '321'),
-(9, '321', '321', '321@13.com22', '321'),
-(10, '123', '123', '321@13.com21', '123'),
-(11, '123', '123', '123@123.1231', '123'),
-(12, '321', '321', '321@13.com222', '321');
+(3, 'admin', 'admin', 'admin@admin.com', '$2y$10$dfnKqp9QDUyMXfx4VkOaYezHd78hcCsbz0XUi4gq/A6ieMdXm7KGG'),
+(4, 'Nathaniel', 'Mizzi', 'nathanielmizzi2@gmail.com', '$2y$10$oPQSjhi8rG1AF14ChgGR5uhuEowVccyHgrIDnZqqWBKwo8g4BuxGC'),
+(5, '123', '123', '123@123.com', '123'),
+(6, 'TestAccount', 'Test', 'test@test.com', '123'),
+(7, '123', '123', '123@123.com3', '123'),
+(8, '123', '321', 'jakebestboy@hotmail.com3', '123'),
+(9, '123', '123', '321@323232.32', '123'),
+(10, 'jake', 'salerno', 'jake.salerno@test.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -178,6 +194,7 @@ ALTER TABLE `tbl_location`
 --
 ALTER TABLE `tbl_property`
   ADD PRIMARY KEY (`propertyId`),
+  ADD UNIQUE KEY `propertyId` (`propertyId`),
   ADD KEY `locationId` (`locationId`),
   ADD KEY `userId` (`userId`);
 
@@ -203,25 +220,25 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_location`
 --
 ALTER TABLE `tbl_location`
-  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `locationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `tbl_property`
 --
 ALTER TABLE `tbl_property`
-  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
