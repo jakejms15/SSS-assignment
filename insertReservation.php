@@ -12,5 +12,5 @@
     $query =  "INSERT INTO tbl_reservation (propertyId, date_from, date_to, amountPaid, userId) VALUES ('$propertyId', '$date_from', '$date_to', '$price', '$userId')";
     $result = mysqli_query($connection, $query)
         or die("Error in query: ". mysqli_error($connection));
-    $row = mysqli_fetch_row($result);
+    header('Location: index.php');
 ?>
