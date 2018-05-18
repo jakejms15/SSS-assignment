@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <div class="form-group ">
+                    <div class="form-group">
                         <?php 
                             if (isset($_SESSION['userId'])) 
                                     {                
@@ -42,44 +42,48 @@
                                         if(isset($_POST['Submit']))
                                         {
                         ?>
-                <table>
-                    <?php
-                        $location = $_POST['location'];
-                        $checkIn = date('Y-m-d', strtotime($_POST['checkIn']));
-                        $checkOut = date('Y-m-d', strtotime($_POST['checkOut']));
-                        $numOfGuests = $_POST['numOfGuests'];
-                        require_once('databaseConn.php');
+                        
+                        <form action="register.php" method="post">
+                        <table>
+                            <?php
+                                $location = $_POST['location'];
+                                $checkIn = date('Y-m-d', strtotime($_POST['checkIn']));
+                                $checkOut = date('Y-m-d', strtotime($_POST['checkOut']));
+                                $numOfGuests = $_POST['numOfGuests'];
+                                require_once('databaseConn.php');
 
-                        $query = "SELECT * FROM tbl_property p LEFT JOIN tbl_reservation r
-                                        ON p.propertyId = r.propertyId
-                                        WHERE p.propertyId IN
-                                        (SELECT propertyId FROM tbl_property p JOIN tbl_location l 
-                                        ON p.locationId = l.locationId
-                                        WHERE l.location = '$location'
-                                        AND p.capacity >= '$numOfGuests')";
+                                $query = "SELECT * FROM tbl_property p LEFT JOIN tbl_reservation r
+                                                ON p.propertyId = r.propertyId
+                                                WHERE p.propertyId IN
+                                                (SELECT propertyId FROM tbl_property p JOIN tbl_location l 
+                                                ON p.locationId = l.locationId
+                                                WHERE l.location = '$location'
+                                                AND p.capacity >= '$numOfGuests')";
 
-                            $result = mysqli_query($connection, $query)
-                                    or die("Error in query: ". mysqli_error($connection));
-                            while($row = mysqli_fetch_array($result)){  
-                                if(($checkIn >= $row['date_from'] && $checkIn <= $row['date_to']) || ($checkOut >= $row['date_from'] && $checkOut <= $row['date_to']) || ($checkIn <= $row['date_from'] && $checkOut >= $row['date_to']))
-                                {
-                                    continue;
+                                    $result = mysqli_query($connection, $query)
+                                            or die("Error in query: ". mysqli_error($connection));
+                                    while($row = mysqli_fetch_array($result)){  
+                                        if(($checkIn >= $row['date_from'] && $checkIn <= $row['date_to']) || ($checkOut >= $row['date_from'] && $checkOut <= $row['date_to']) || ($checkIn <= $row['date_from'] && $checkOut >= $row['date_to']))
+                                        {
+                                            continue;
+                                        }
+                                        else
+                                        {
+                                            echo "<div class='rounded' style='background-color: #404040;'>
+                                                    <img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
+                                                    <a id='title'>$row[title] </a><br/>
+                                                    <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>
+                                                    <input type='submit' href='register.php' value='Register' class='btn btn-success btn-block'>
+                                                </div><br/>";
+                                        }
+
+                                    }
                                 }
-                                else
-                                {
-                                    echo "<div class='rounded' style='background-color: #404040;'>
-                                            <img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
-                                            <a id='title'>$row[title] </a><br/>
-                                            <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>
-                                            <input type='submit' value='Book Property' class='btn btn-success btn-block'>
-                                        </div><br/>";
-                                }
 
-                            }
-                        }
-
-                    ?>       
-                </table>  
+                            ?>       
+                        </table>  
+                            
+                </form>
 <?php
             }
 ?>

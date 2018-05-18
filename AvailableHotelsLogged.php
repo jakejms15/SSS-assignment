@@ -1,3 +1,4 @@
+<form action="insertReservation.php" method="post">
 <?php 
     if(isset($_POST['Submit']))
     {
@@ -27,12 +28,16 @@
                     echo "<div class='rounded' style='background-color: #404040;'>
                             <img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
                             <a id='title'>$row[title] </a><br/>
-                            <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>
-                            <input type='submit' value='Book Property' class='btn btn-success btn-block'>
-                        </div><br/>";
+                            <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>";
+                    echo '<a href="insertReservation.php?propertyId='.$row[0].'&price='.$row['pricePerNight'].'&checkIn='.$checkIn.'&checkOut='.$checkOut.'class="btn btn-success btn-block"">Book Property</a>';
+                    
+                    echo "</div><br/>";
+                    
+                    
                 }
             
             }
         }
         
-    ?>       
+    ?>    
+</form>
