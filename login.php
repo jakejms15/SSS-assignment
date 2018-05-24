@@ -78,12 +78,19 @@
                                 WHERE email = '$email' AND password = '$password'";
                     $result2 = mysqli_query($connection, $query2)
                         or die("Error in query: ". mysqli_error($connection));
-
+                    
+                    $query3 = "SELECT email FROM tbl_users 
+                                WHERE email = '$email' AND password = '$password'";
+                    $result3 = mysqli_query($connection, $query3)
+                        or die("Error in query: ". mysqli_error($connection));
+                    
                     if($count > 0) 
                     {
                         session_start();
                         $row2 = mysqli_fetch_row($result2);
+                        $row3 = mysqli_fetch_row($result3);
                         $_SESSION["userId"] = $row2[0];
+                        $_SESSION["email"] = $row3[0];
                         header('Location: index.php');
                         
                     } 

@@ -19,8 +19,16 @@
     <body>
         <?php 
             if (isset($_SESSION['userId'])) 
-            {                
-                include 'menuLogged.php';
+            {   
+                $email = $_SESSION['email'];
+                if($email != 'admin@admin.com')
+                {
+                    include 'menuLogged.php';
+                }
+                else if($email = 'admin@admin.com')
+                {
+                    include 'menuAdmin.php';
+                }
             }
             else
             {

@@ -89,11 +89,18 @@
                                     </div>
                                     
                                 </div>
+                                <?php
+                                    if (isset($_GET['propertyId']))
+                                    {
+                                        $_SESSION['propertyId'] = $_GET['propertyId'];
+                                    }
+                                
+                                ?>
                                 <input type="submit" name="Submit" value="Update" class="btn btn-info btn-block">
                             <?php
                                 if(isset($_POST['Submit']))
                                 {
-                                    $propertyId = $_GET['propertyId'];
+                                    $propertyId = $_SESSION['propertyId'];
                                     $upfile = 'images/' . $_FILES['userfile']['name'];
                                     $title = $_POST['title'];
                                     $price = $_POST['price'];
@@ -104,7 +111,7 @@
                                     require_once('databaseConn.php');
                                     
                                     
-                                    $query = "UPDATE tbl_property SET title = '$title' AND pricePerNight = '$price' AND capacity = '$capacity' AND locationId = '$location' AND image = '$upfile'
+                                    $query = "UPDATE tbl_property SET title = '$title', pricePerNight = '$price', capacity = '$capacity', locationId = '$location', image = '$upfile'
                                     WHERE propertyId = '$propertyId'";
 
                                     $result = mysqli_query($connection, $query)
