@@ -9,7 +9,7 @@
                     <a class="nav-link" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php">Delete User</a>
+                    <a class="nav-link" href="deleteUser.php">Delete User</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logOut.php">Logout</a>

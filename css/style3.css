@@ -72,3 +72,26 @@ body
     margin: auto 0;
 }
 
+#name
+{
+    color: white; 
+    font-family: Calibri; 
+    font-size: 15px;
+}
+
+#email
+{
+    color: white; 
+    font-family: Calibri; 
+    font-size: 15px;
+}
+
+#userId
+{
+    color: white; 
+    font-family: Calibri; 
+    font-size: 15px;
+}
+
+
+
