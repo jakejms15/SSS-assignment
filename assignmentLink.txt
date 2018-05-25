@@ -1,0 +1,5 @@
+Website Link: http://jakeserverside.ga/
+
+**NOTE**
+The website was uploaded but some of the funtions won't seem to work, 
+although on the localhost version, it works perfectly.
