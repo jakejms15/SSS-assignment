@@ -30,6 +30,10 @@
                     include 'menuAdmin.php';
                 }
             }
+            else
+            {
+                        header('Location: index.php');
+            }
         ?>
         <div class="container">
             <div class="row">
@@ -42,7 +46,7 @@
                                 $userId = $_SESSION['userId'];
                                 require_once('databaseConn.php');
 
-                                $query = "SELECT * FROM tbl_users u INNER JOIN tbl_property p ON u.userId = p.userId WHERE u.userId = p.userId";
+                                $query = "SELECT * FROM tbl_users";
 
                                     $result = mysqli_query($connection, $query)
                                             or die("Error in query: ". mysqli_error($connection));
@@ -51,7 +55,7 @@
                                         <a id='userId'>User ID: $row[userId]</a><br/>
                                         <a id='name'>Name: $row[name] $row[surname] </a><br/>
                                         <a id='email'>Email: $row[email]</a><br/><br/>";
-                                        echo '<a class="btn btn-success btn-block" href="deleteUserFinal.php?userId='.$row['userId'].'&propertyId='.$row['propertyId'].'">Delete User</a>';
+                                        echo '<a class="btn btn-success btn-block" href="deleteUserFinal.php?userId='.$row['userId'].'">Delete User</a>';
 
                                         echo "</div><br/>";
                                         }
@@ -67,3 +71,6 @@
         </div>
     </body>
 </html>
+<?php        
+    include 'footer.php';
+?>

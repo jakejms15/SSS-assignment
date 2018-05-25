@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 18, 2018 at 11:36 PM
+-- Generation Time: May 25, 2018 at 04:19 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -72,16 +72,17 @@ CREATE TABLE `tbl_property` (
 --
 
 INSERT INTO `tbl_property` (`propertyId`, `userId`, `title`, `capacity`, `pricePerNight`, `locationId`, `image`) VALUES
-(1, 1, 'testProp', 2, 50, 2, 'images/497buying_italian-_property.jpg'),
-(2, 1, 'TestProp2', 3, 40, 2, 'images/apartment.jpg'),
-(3, 3, 'charlesProp', 2, 33, 2, 'images/39836545.jpg'),
-(4, 1, 'propert 3', 3, 100, 1, 'images/dasdada.jpg'),
-(5, 1, 'Property2', 2, 300, 3, 'images/39836545.jpg'),
-(6, 1, '123', 1, 32, 3, 'images/'),
-(7, 1, '321', 1, 32, 1, 'images/584999b17b7d4d76317f6000.png'),
-(8, 1, '32', 3, 32, 1, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j'),
-(9, 1, '123', 1, 123, 1, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j'),
-(10, 1, 'property ', 2, 123, 1, 'images/39836545.jpg');
+(1, 1, '123', 1, 32131321, 4, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j'),
+(2, 1, '', 3, 40, 2, 'images/apartment.jpg'),
+(4, 1, '', 3, 100, 1, 'images/dasdada.jpg'),
+(5, 1, '', 2, 300, 3, 'images/39836545.jpg'),
+(6, 1, '', 1, 32, 3, 'images/'),
+(7, 1, '', 1, 32, 1, 'images/584999b17b7d4d76317f6000.png'),
+(8, 1, '', 3, 32, 1, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j'),
+(9, 1, '', 1, 123, 1, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j'),
+(10, 1, '', 2, 123, 1, 'images/39836545.jpg'),
+(11, 1, '321321312', 1, 321321321, 1, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j'),
+(16, 1, '123', 1, 123, 2, 'images/2ad30a19903db499b8f246aa2ab1f7ef_400x1000.j');
 
 -- --------------------------------------------------------
 
@@ -103,14 +104,10 @@ CREATE TABLE `tbl_reservation` (
 --
 
 INSERT INTO `tbl_reservation` (`reservationId`, `propertyId`, `date_from`, `date_to`, `amountPaid`, `userId`) VALUES
-(1, 1, '2018-05-01', '2018-05-05', 100, 3),
 (16, 4, '2018-05-18', '2018-05-18', 100, 1),
 (17, 2, '2018-05-18', '2018-05-18', 40, 1),
-(28, 1, '2018-05-18', '2018-05-18', 50, 1),
-(32, 5, '2018-05-18', '2018-05-18', 300, 1),
-(33, 3, '2018-05-18', '2018-05-18', 33, 1),
-(34, 1, '2018-05-18', '2018-05-18', 50, 1),
-(35, 10, '2018-05-18', '2018-05-18', 123, 1);
+(35, 10, '2018-05-18', '2018-05-18', 123, 1),
+(36, 10, '2018-05-23', '2018-05-23', 123, 1);
 
 -- --------------------------------------------------------
 
@@ -132,8 +129,7 @@ CREATE TABLE `tbl_users` (
 
 INSERT INTO `tbl_users` (`userId`, `name`, `surname`, `email`, `password`) VALUES
 (1, 'Jake', 'Salerno', '123@123.com', '123'),
-(2, 'Joe', 'Borg', 'joe@borg.com', '$2y$10$4EZ62XSlFkAriaUR6yZlkuI8pk5hcSSubShmDPe2iNL'),
-(3, 'Charles', 'Grech', 'charles@123.com', '123');
+(5, 'Admin', 'Admin', 'admin@admin.com', '123456');
 
 --
 -- Indexes for dumped tables
@@ -181,19 +177,19 @@ ALTER TABLE `tbl_location`
 -- AUTO_INCREMENT for table `tbl_property`
 --
 ALTER TABLE `tbl_property`
-  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `propertyId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `reservationId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
@@ -210,8 +206,8 @@ ALTER TABLE `tbl_property`
 -- Constraints for table `tbl_reservation`
 --
 ALTER TABLE `tbl_reservation`
-  ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `tbl_users` (`userId`),
-  ADD CONSTRAINT `tbl_reservation_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `tbl_property` (`propertyId`);
+  ADD CONSTRAINT `tbl_reservation_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `tbl_users` (`userId`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tbl_reservation_ibfk_2` FOREIGN KEY (`propertyId`) REFERENCES `tbl_property` (`propertyId`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

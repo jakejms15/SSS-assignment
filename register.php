@@ -94,7 +94,11 @@
                                         {
                                             echo "Email already in use. Please choose another email!";
                                         }
-                                        else if($password = $confPassword)
+                                        else if(strlen($password) < 6)
+                                        {
+                                            echo "Password must be made up of atleast 6 characters!";
+                                        }
+                                        else if((strlen($password) >= 6) && ($password = $confPassword))
                                         {
                                             $query = "INSERT INTO tbl_users (name, surname, email, password)
                                                     VALUES ('$fName', '$lName','$email', '$password')";
@@ -119,3 +123,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
     </body>
 </html>
+<?php        
+    include 'footer.php';
+?>

@@ -30,6 +30,11 @@
                     include 'menuAdmin.php';
                 }
             }
+
+            else
+            {
+                        header('Location: index.php');
+            }
         ?>
         <div class="container">
             <div class="row">
@@ -97,3 +102,6 @@
         </div>
     </body>
 </html>
+<?php        
+    include 'footer.php';
+?>

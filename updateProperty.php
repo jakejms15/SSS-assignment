@@ -25,6 +25,7 @@
             else
             {
                 include 'menu.php';
+                header('Location: index.php');
             }
         ?>
         <div class="container">
@@ -59,10 +60,13 @@
                             ?>       
                         </table>  
                             
-                </form>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </body>
 </html>
+<?php        
+    include 'footer.php';
+?>

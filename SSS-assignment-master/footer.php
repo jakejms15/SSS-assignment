@@ -1,1 +1,0 @@
-<footer style="color: white;">Jake Salerno SWD-4.2C</footer>

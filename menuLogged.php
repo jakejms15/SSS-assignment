@@ -18,6 +18,18 @@
                     <a class="nav-link" href="logOut.php">Logout</a>
                 </li>
             </ul>
+            <span class="nav-text" style="color: white;">
+                <?php 
+                require_once('databaseConn.php');
+                $userId = $_SESSION['userId'];
+
+                $query = "SELECT name FROM tbl_users WHERE userId = '$userId'";
+                $result = mysqli_query($connection, $query)
+                    or die("Error in query: ". mysqli_error($connection));
+                while($row = mysqli_fetch_array($result)){  
+                    echo $row['name'];
+                }?>
+            </span>
         </div>
     </div>
 </nav>

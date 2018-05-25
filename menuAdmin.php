@@ -12,9 +12,15 @@
                     <a class="nav-link" href="deleteUser.php">Delete User</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="viewReservations.php">View Reservations</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="logOut.php">Logout</a>
                 </li>
             </ul>
+            <span class="nav-text" style="color: white;">
+                Admin
+            </span>
         </div>
     </div>
 </nav>
