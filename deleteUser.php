@@ -44,9 +44,10 @@
                         <table>
                             <?php
                                 $userId = $_SESSION['userId'];
+                                $email = $_SESSION['email'];
                                 require_once('databaseConn.php');
 
-                                $query = "SELECT * FROM tbl_users";
+                                $query = "SELECT * FROM tbl_users WHERE email != 'admin@admin.com'";
 
                                     $result = mysqli_query($connection, $query)
                                             or die("Error in query: ". mysqli_error($connection));
