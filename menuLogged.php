@@ -15,7 +15,7 @@
                     <a class="nav-link" href="updateProperty.php">Update a Property</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="logOut.php">Logout</a>
+                    <a class="nav-link" href="logout.php">Logout</a>
                 </li>
             </ul>
             <span class="nav-text" style="color: white;">
