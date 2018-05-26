@@ -43,6 +43,7 @@ body
     font-size: 20px; 
     font-weight: bold;
     text-decoration: underline;
+    margin-left: 20px;
 }
 
 #price
@@ -50,6 +51,7 @@ body
     color: white; 
     font-family: Calibri; 
     font-size: 15px;
+    margin-left: 20px;
 }
 
 #image

@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <title>Server-Side Scripting Assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/style3.css?v=3.4.2">
+        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->
@@ -46,11 +46,11 @@
                                             or die("Error in query: ". mysqli_error($connection));
                                     while($row = mysqli_fetch_array($result)){  
                                         echo "<div class='rounded' style='background-color: #404040;'>
-                                        <img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
+                                        <br/><img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
                                         <a id='title'>Title: $row[title] </a><br/>
-                                        <a id='capacity'>Capacity: $row[capacity]</a><br/><br/>
+                                        <a id='capacity'>Capacity: $row[capacity]</a><br/>
                                         <a id='price'>Price Per Night: $$row[pricePerNight]/Night  </a><br/>
-                                        <a id='locationId'>Location: $row[location] </a><br/>";
+                                        <a id='locationId'>Location: $row[location] </a><br/><br/>";
                                         echo '<a class="btn btn-success btn-block" href="updatePropertyFinal.php?propertyId='.$row['propertyId'].'">Update Property</a>';
 
                                         echo "</div><br/>";

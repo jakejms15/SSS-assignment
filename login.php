@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Welcome to Cupping's</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css"?v=3.4.2>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->

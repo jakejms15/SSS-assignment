@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <title>Server-Side Scripting Assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/style3.css?v=3.4.2">
+        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->
@@ -55,11 +55,11 @@
                                 or die("Error in query: ". mysqli_error($connection));
                         while($row = mysqli_fetch_array($result)){
                                 echo "<div class='rounded' style='background-color: #404040;'>
-                                        <img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
-                                        <a id='dateFrom' style='color: white;'>Date From: $row[date_from] </a><br/>
-                                        <a id='dateTo' style='color: white;'>Date To: $row[date_to] </a><br/>
-                                        <a id='amount' style='color: white;'>Amount: $$row[amountPaid]/Night </a><br/>
-                                        <a id='userId' style='color: white;'>User Id: $row[userId]</a><br/><br/>";
+                                        <br/><img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
+                                        <a id='dateFrom'>Date From: $row[date_from] </a><br/>
+                                        <a id='dateTo'>Date To: $row[date_to] </a><br/>
+                                        <a id='amount'>Amount: $$row[amountPaid]/Night </a><br/>
+                                        <a id='userId'>User Id: $row[userId]</a><br/><br/>";
                                 echo '<a class="btn btn-success btn-block" href="index.php">Go Back</a>';
 
                                 echo "</div><br/>";

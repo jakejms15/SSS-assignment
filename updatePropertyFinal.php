@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <title>Server-Side Scripting Assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/style3.css?v=3.4.2">
+        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->

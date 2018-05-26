@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <title>Server-Side Scripting Assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/style3.css?v=3.4.2">
+        <link rel="stylesheet" type="text/css" href="css/style3.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->
@@ -52,7 +52,7 @@
                                             or die("Error in query: ". mysqli_error($connection));
                                     while($row = mysqli_fetch_array($result)){  
                                         echo "<div class='rounded' style='background-color: #404040;'>
-                                        <a id='userId'>User ID: $row[userId]</a><br/>
+                                        <br/><a id='userId'>User ID: $row[userId]</a><br/>
                                         <a id='name'>Name: $row[name] $row[surname] </a><br/>
                                         <a id='email'>Email: $row[email]</a><br/><br/>";
                                         echo '<a class="btn btn-success btn-block" href="deleteUserFinal.php?userId='.$row['userId'].'">Delete User</a>';

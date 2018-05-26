@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <title>Server-Side Scripting Assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/style2.css?v=3.4.2">
+        <link rel="stylesheet" type="text/css" href="css/style2.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->
@@ -76,11 +76,12 @@
                                 else
                                 {
                                     echo "<div class='rounded' style='background-color: #404040;'>
-                                            <img src=$row[image] id='image' height='200px' width='100%'></td><br/><br/>
+                                            <br/><img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
                                             <a id='title'>$row[title] </a><br/>
-                                            <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>
-                                            <input type='submit' value='Book Property' class='btn btn-success btn-block'>
-                                        </div><br/>";
+                                            <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>";
+                                    
+                                    echo '<a class="btn btn-success btn-block" href="register.php">Register</a>
+                                        </div><br/>';
                                 }
 
                             }

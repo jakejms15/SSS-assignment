@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <title>Server-Side Scripting Assignment</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css?v=3.4.2">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <!-- charset meta tag -->
         <meta charset="utf-8">
         <!-- Responsive meta tag -->
@@ -84,7 +84,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
-                                            <input name="userfile" type="file"><br/><br/>
+                                            <input name="userfile" type="file" required><br/><br/>
                                         </div>
                                     </div>
                                     

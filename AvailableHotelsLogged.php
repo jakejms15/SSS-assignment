@@ -50,10 +50,10 @@
                                     else
                                     {
                                         echo "<div class='rounded' style='background-color: #404040;'>
-                                                <img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
+                                                <br/><img src=$row[image] id='image' height='100%' width='100%'></td><br/><br/>
                                                 <a id='title'>$row[title] </a><br/>
                                                 <a id='price'>$$row[pricePerNight]/Night </a><br/><br/>";
-                                        echo '<a class="btn btn-success btn-block" href="insertReservation.php?propertyId='.$row[0].'&price='.$row['pricePerNight'].'&checkIn='.$checkIn.'&checkOut='.$checkOut.' ">Book Property</a>';
+                                        echo '<a class="btn btn-success btn-block" href="insertReservation.php?propertyId='.$row[0].'&price='.$row['pricePerNight'].'&checkIn='.$checkIn.'&checkOut='.$checkOut.'&numOfGuests='.$numOfGuests.' ">Book Property</a>';
 
                                         echo "</div><br/>";
 
